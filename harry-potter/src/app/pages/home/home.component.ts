@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CharactersService } from '../characters/characters.service';
+import { Component, OnInit } from '@angular/core';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +8,14 @@ import { CharactersService } from '../characters/characters.service';
   styleUrl: './home.component.css'
 })
 
-export class HomeComponent {
-  characters: any = [];
+export class HomeComponent implements OnInit {
+  principalCharacters: any = "";
 
-  constructor(private charactersService: CharactersService) { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    this.charactersService.getCharacters().then(data => {
-      this.characters = data;
+    this.homeService.getCharacters().then(data => {
+      this.principalCharacters = data[0].image;
     })
   }
 }
