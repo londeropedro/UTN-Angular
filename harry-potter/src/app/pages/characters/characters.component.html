@@ -1,0 +1,11 @@
+<h1>Peronajes de Harry Potter</h1>
+<div class="characters">
+  @for(character of characters; track character.id) {
+  <div class="character">
+    <h3>{{character.name}}</h3>
+    <p>Specie: {{character.species}}</p>
+    <p>Actor: {{character.actor}}</p>
+    <img [src]="character.image" alt="imagen de {{character.name}}">
+  </div>
+  }
+</div>
